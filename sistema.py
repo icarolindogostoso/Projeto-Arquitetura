@@ -7,11 +7,11 @@ class Sistema:
 
         codigo_asm = codigo
 
-        arquivo_asm = "c:/Users/icaroohomidopcgaymer/Desktop/TADS/Projeto-Arquitetura2/codigo.asm"
+        arquivo_asm = "codigo.asm"
         with open(arquivo_asm, "w") as arquivo:
             arquivo.write(codigo_asm)
 
-        caminho_jar = "c:/Users/icaroohomidopcgaymer/Desktop/TADS/Projeto-Arquitetura2/Mars4_5.jar"
+        caminho_jar = "Mars4_5.jar"
 
         if not os.path.isfile(caminho_jar):
             return "nao foi possivel achar arquivo"
