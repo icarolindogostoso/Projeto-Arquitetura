@@ -15,7 +15,7 @@ with col1:
     entrada = "8"
     if st.button("submeter"):
         mensagem = Cliente.main(codigo, entrada)
-        st.write(mensagem)
+        st.code(mensagem)
 
 with col2:
 

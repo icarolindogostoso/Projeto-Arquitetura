@@ -17,3 +17,16 @@ class Cliente:
 
             msg = s.recv(1024)
             return f"{msg.decode("utf-8")}"
+        
+# codigo = ""
+# while True:
+#     linha = input()
+#     if linha == "":
+#         break
+#     codigo += linha + "\n"
+
+# entrada = "8"
+
+# resposta = Cliente.main(codigo, entrada)
+
+# print(resposta)
