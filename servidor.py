@@ -10,7 +10,7 @@ class Servidor:
         self.soc.listen()
         while True:
             cliente, address = self.soc.accept()
-            msg = cliente.recv(128).decode("utf-8")
+            msg = cliente.recv(1024).decode("utf-8")
 
             try:
                 codigo,entrada = msg.split("~",1)
