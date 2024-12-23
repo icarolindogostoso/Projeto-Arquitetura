@@ -27,7 +27,7 @@ class Questao:
 
     def setCasosTeste(self, casos_teste):
         if len(casos_teste) >= 0:
-            self.__casos_teste = casos_teste        
+            self.__casos_teste = casos_teste
         else:
             raise ValueError("Casos de teste da questão inválido")
 
@@ -98,15 +98,15 @@ class Questoes:
         cls.objetos = []
 
         try:
-            with open("model/questoes.json", mode="r") as arquivo:
+            with open("bee/model/questoes.json", mode="r") as arquivo:
                 questoes_json = json.load(arquivo)
                 for obj in questoes_json:
-                    c = Questao(obj["id"], obj["nome"], obj["enunciado"], obj["casos_teste"])
+                    c = Questao(obj["_Questao__id"], obj["_Questao__nome"], obj["_Questao__enunciado"], obj["_Questao__casos_teste"])
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass
 
     @classmethod
     def salvar (cls):
-        with open("model/questoes.json", mode="w") as arquivo:
+        with open("bee/model/questoes.json", mode="w") as arquivo:
             json.dump(cls.objetos, arquivo, default=vars)
