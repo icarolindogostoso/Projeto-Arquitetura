@@ -11,12 +11,22 @@ class Cliente:
             comando = f"{codigo}~{entrada}"
 
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect(("127.0.0.1", 8888))
 
-            s.send(comando.encode("utf-8"))
+            s.settimeout(3)
 
-            msg = s.recv(1024)
-            return f"{msg.decode("utf-8")}"
+            try:
+                s.connect(("127.0.0.1", 8888))
+
+                s.send(comando.encode("utf-8"))
+
+                msg = s.recv(1024)
+                return f"{msg.decode("utf-8")}"
+            
+            except socket.timeout:
+                return "timeout"
+            
+            finally:
+                s.close()
         
 # codigo = ""
 # while True:
